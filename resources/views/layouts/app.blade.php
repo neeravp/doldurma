@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <div class="container p-20">
+        <div class="container mx-auto p-20">
             @yield('content')
         </div>
     </body>
