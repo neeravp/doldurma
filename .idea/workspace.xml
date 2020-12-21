@@ -20,41 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14e20381-2ae3-454a-a577-c62d2c022038" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/doldurma.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/RolesUSerSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/LanguageFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LanguageFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/RoleFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/RoleFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserPropertyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserPropertyFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_205148_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_205148_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_205201_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_205201_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_205215_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_205215_create_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_103711_create_languages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_103711_create_languages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_104914_category_post_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_104914_category_post_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_104934_category_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_104934_category_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_105018_create_user_properties_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_105018_create_user_properties_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_105439_create_role_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_105439_create_role_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CatagoriesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CatagoriesSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/CategoryPostSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryPostSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CategoryUserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryUserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/LanguagesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LanguagesSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/PostsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PostsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RolesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RolesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserPropertiesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserPropertiesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UsersSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UsersSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +188,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608531471901</updated>
-      <workItem from="1608531473872" duration="4055000" />
+      <workItem from="1608531473872" duration="6780000" />
     </task>
     <servers />
   </component>
@@ -236,9 +207,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608538612222">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1608538612222" />
     <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1608535889562">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1608535889562" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608536231198">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1608536231198" />
   </component>
 </project>

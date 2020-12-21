@@ -15,44 +15,44 @@ class PostsSeeder extends Seeder
     public function run()
     {
         Post::create([
-            'user_id'        => 1,
-            'title'          => 'Post on LARAVEL category (by portal manager)',
-            'description'    => '<p>post on laravel category post on laravel category post on laravel category</p>',
+            'user_id' => 1,
+            'title' => 'LARAVEL Test Test Test',
+            'description' => '<p>Test Test Test</p>',
             //'category_id'    => 9,
         ]); //'name' => 'alfred', is-portal-manager
 
         Post::create([
-            'user_id'        => 2,
-            'title'          => 'Post on FLUTTER category (by portal manager)',
-            'description'    => '<p>post on flutter category post on flutter category post on flutter category</p>',
+            'user_id' => 2,
+            'title' => 'WEB Test Test Test',
+            'description' => '<p>Test Test Test</p>',
             //'category_id'    => 7,
         ]); //'name' => 'ella', is-manager
 
         Post::create([
-            'user_id'        => 3,
-            'title'          => 'Post on HTML category (by is-editor)',
-            'description'    => '<p>post on flutter category post on flutter category post on flutter category</p>',
+            'user_id' => 3,
+            'title' => 'HTML Test Test Test',
+            'description' => '<p>Test Test Test</p>',
             //'category_id'    => 5,
         ]);//'name' => 'elizabeth', is-manager
 
         Post::create([
-            'user_id'        => 4,
-            'title'          => 'Post on CSS category (by is-manager)',
-            'description'    => '<p>post on flutter category post on flutter category post on flutter category</p>',
+            'user_id' => 4,
+            'title' => 'CSS Test Test Test',
+            'description' => '<p>Test Test Test</p>',
             //'category_id'    => 6
         ]); // 'name' => 'scarlett', is-editor
 
         Post::create([
-            'user_id'        => 5,
-            'title'          => 'Post on LUMEN category (by is-writer)',
-            'description'    => '<p>post on flutter category post on flutter category post on flutter category</p>',
+            'user_id' => 5,
+            'title' => 'LUMEN Test Test Test',
+            'description' => '<p>Test Test Test</p>',
             //'category_id'    => 10, //laravel
         ]); //'name' => 'william', is-writer
 
         Post::create([
-            'user_id'        => 6,
-            'title'          => 'Post on FLUTTER category (by is-writer)',
-            'description'    => '<p>post on flutter category post on flutter category post on flutter category</p>',
+            'user_id' => 6,
+            'title' => 'FLUTTER Test Test Test',
+            'description' => '<p>Test Test Test</p>',
             //'category_id'    => 7, //flutter
         ]); //'name' => 'william',is-writer
     }
