@@ -41,8 +41,19 @@ class Post extends Model
     /**
      * Get the User to which the current Post belongs.
      */
-    public function author(): BelongsTo
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    /*public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id', 'author');
-    }
+    }*/
 }

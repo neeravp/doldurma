@@ -15,25 +15,45 @@ class PostsSeeder extends Seeder
     public function run()
     {
         Post::create([
-            'user_id'        => 1,
-            'title'          => 'Post on Laravel category',
-            'description'    => '<p>post on laravel category post on laravel category post on laravel category</p>',
-            'slug'           => 'post-on-laravel-category',
-            'post_type'      => true,
-            'published'      => true,
-            'confirmed'      => true,
-            'featured_image' => '{"images":{"original":"\/uploads\/post_images\/2020\/1606483705.png","300":"\/uploads\/post_images\/2020\/300_1606483705.png","900":"\/uploads\/post_images\/2020\/900_1606483705.png"},"thumbnail":"\/uploads\/post_images\/2020\/300_1606483705.png"}'
-        ]);
+            'user_id' => 1,
+            'title' => 'LARAVEL Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+            //'category_id'    => 9,
+        ]); //'name' => 'alfred', is-portal-manager
 
         Post::create([
-            'user_id'        => 1,
-            'title'          => 'Post on Flutter category',
-            'description'    => '<p>post on flutter category post on flutter category post on flutter category</p>',
-            'slug'           => 'post-on-flutter-category',
-            'post_type'      => true,
-            'published'      => true,
-            'confirmed'      => true,
-            'featured_image' => '{"images":{"original":"\/uploads\/post_images\/2020\/1606483733.png","300":"\/uploads\/post_images\/2020\/300_1606483733.png","900":"\/uploads\/post_images\/2020\/900_1606483733.png"},"thumbnail":"\/uploads\/post_images\/2020\/300_1606483733.png"}'
-        ]);
+            'user_id' => 2,
+            'title' => 'WEB Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+            //'category_id'    => 7,
+        ]); //'name' => 'ella', is-manager
+
+        Post::create([
+            'user_id' => 3,
+            'title' => 'HTML Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+            //'category_id'    => 5,
+        ]);//'name' => 'elizabeth', is-manager
+
+        Post::create([
+            'user_id' => 4,
+            'title' => 'CSS Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+            //'category_id'    => 6
+        ]); // 'name' => 'scarlett', is-editor
+
+        Post::create([
+            'user_id' => 5,
+            'title' => 'LUMEN Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+            //'category_id'    => 10, //laravel
+        ]); //'name' => 'william', is-writer
+
+        Post::create([
+            'user_id' => 6,
+            'title' => 'FLUTTER Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+            //'category_id'    => 7, //flutter
+        ]); //'name' => 'william',is-writer
     }
 }
