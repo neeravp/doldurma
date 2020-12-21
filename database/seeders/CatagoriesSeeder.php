@@ -14,44 +14,44 @@ class CatagoriesSeeder extends Seeder
      */
     public function run()
     {
-        Category::create([
+        Category::create([ //id:1
             'parent_id'   => null,
             'name'        => 'programming languages'
         ]);
-        Category::create([
+        Category::create([  //id:2
             'parent_id'   => 1,
             'name'        => 'web'
         ]);
-        Category::create([
+        Category::create([  //id:3
             'parent_id'   => 1,
             'name'        => 'mobile'
         ]);
-        Category::create([
-            'parent_id'   => 2,
+        Category::create([ //web  //id:4
+            'parent_id'   => 2, //parent:web
             'name'        => 'php'
         ]);
-        Category::create([
-            'parent_id'   => 2,
+        Category::create([ //web  //id:5
+            'parent_id'   => 2, //parent:web
             'name'        => 'html'
         ]);
-        Category::create([
-            'parent_id'   => 2,
+        Category::create([ //web  //id:6
+            'parent_id'   => 2, //parent:web
             'name'        => 'css'
         ]);
-        Category::create([
-            'parent_id'   => 3,
+        Category::create([ //mobile  //id:7
+            'parent_id'   => 3, //parent:mobile
             'name'        => 'flutter'
         ]);
-        Category::create([
-            'parent_id'   => 3,
+        Category::create([ //mobile  //id:8
+            'parent_id'   => 3, //parent:mobile
             'name'        => 'java'
         ]);
-        Category::create([
-            'parent_id'   => 4,
+        Category::create([ //php  //id:9
+            'parent_id'   => 4, //parent:web\php
             'name'        => 'laravel'
         ]);
-        Category::create([
-            'parent_id'   => 4,
+        Category::create([ //php  //id:10
+            'parent_id'   => 4, //parent:web\php
             'name'        => 'lumen'
         ]);
     }

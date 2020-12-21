@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguagesSeeder::class);
         $this->call(CategoryUserSeeder::class);
         $this->call(CategoryPostSeeder::class);
-        $this->call(RoleUSerSeeder::class);
+        $this->call(RolesUSerSeeder::class);
     }
 }
