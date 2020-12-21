@@ -14,8 +14,8 @@ class CategoryUserTable extends Migration
     public function up()
     {
         Schema::create('category_user', function (Blueprint $table) {
-            $table->foreignId('category_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->primary(['category_id', 'user_id']);
         });

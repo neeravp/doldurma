@@ -20,13 +20,13 @@ class RolesSeeder extends Seeder
         ]);
 
         Role::create([
-            'name'  => 'Editor',
-            'label' => 'is-editor'
+            'name'  => 'Manager',
+            'label' => 'is-manager'
         ]);
 
         Role::create([
-            'name'  => 'Manager',
-            'label' => 'is-manager'
+            'name'  => 'Editor',
+            'label' => 'is-editor'
         ]);
 
         Role::create([
