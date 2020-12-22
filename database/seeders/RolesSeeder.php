@@ -14,22 +14,22 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-        Role::create([
+        Role::create([  //id:1
             'name'  => 'Portal Manager',
             'label' => 'is-portal-manager'
         ]);
 
-        Role::create([
+        Role::create([  //id:2
             'name'  => 'Manager',
             'label' => 'is-manager'
         ]);
 
-        Role::create([
+        Role::create([  //id:3
             'name'  => 'Editor',
             'label' => 'is-editor'
         ]);
 
-        Role::create([
+        Role::create([  //id:4
             'name'  => 'Writer',
             'label' => 'is-writer'
         ]);

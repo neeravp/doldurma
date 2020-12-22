@@ -20,19 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14e20381-2ae3-454a-a577-c62d2c022038" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/doldurma.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/doldurma.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Concerns/HasPosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Concerns/HasPosts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_104914_category_post_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_104914_category_post_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_104934_category_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_104934_category_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CatagoriesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CatagoriesSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/CategoryPostSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryPostSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CategoryUserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryUserSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/PostsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PostsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/RoleUserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RoleUserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/RolesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RolesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/RolesUSerSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RolesUSerSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UsersSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UsersSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -162,7 +173,6 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="E:/backup/htdocs/nebrass" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -180,6 +190,12 @@
       <recent name="C:\xampp\htdocs\doldurma\database" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -188,7 +204,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608531471901</updated>
-      <workItem from="1608531473872" duration="6780000" />
+      <workItem from="1608531473872" duration="14064000" />
+      <workItem from="1608609469807" duration="4914000" />
     </task>
     <servers />
   </component>
@@ -205,6 +222,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608538612222">
@@ -219,5 +237,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1608536231198" />
+    <state x="505" y="161" width="823" height="538" key="find.popup" timestamp="1608611872919">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="505" y="161" width="823" height="538" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1608611872919" />
   </component>
 </project>

@@ -52,5 +52,18 @@ class CategoryUserSeeder extends Seeder
         DB::table('category_user')->insert(['category_id' => 7, 'user_id' => 6]);//'flutter'
         // all of user which synced into categories shouldn't see another posts which not synced into directories
         // FOR EXAMPLE
+
+
+        DB::table('category_user')->insert(['category_id' => 12, 'user_id' => 7]);//'images'
+        DB::table('category_user')->insert(['category_id' => 14, 'user_id' => 7]);//'gif'
+        DB::table('category_user')->insert(['category_id' => 15, 'user_id' => 7]);//'png'
+        DB::table('category_user')->insert(['category_id' => 16, 'user_id' => 7]);//'jpg'
+        DB::table('category_user')->insert(['category_id' => 17, 'user_id' => 7]);//'bmp'
+
+
+        DB::table('category_user')->insert(['category_id' => 13, 'user_id' => 8]);//'sounds'
+        DB::table('category_user')->insert(['category_id' => 18, 'user_id' => 8]);//'ogg'
+        DB::table('category_user')->insert(['category_id' => 19, 'user_id' => 8]);//'mp3'
+
     }
 }

@@ -88,5 +88,32 @@ class UsersSeeder extends Seeder
         ]);
 
 
+        User::create([ //is-manager 7
+            'name' => 'messi',
+            'family' => 'messi',
+            'username' => 'messi',
+            'email' => 'p2messi@p.com',
+            'password' => Hash::make('secret'),
+            'two_factor_expiry' => '2020-11-22 06:29:29',
+            'session_id' => 'jQQ2lNkcsid8ZJBp7vHyVfcy4f790ZRohTdeGG8d',
+            'api_token' => 'WgvwYZpvAApBwvLXiX3IkYNNdUlsFZW02cPVaCLEh71Mw2bnzCnJfJiJl836',
+            'remember_token' => 'j5alcluEhrEGXPWz0kdklOpuoqvR9kDhymSHcOcNT7qRDpEcdLkj52dhko1X',
+        ]);
+
+
+        User::create([ //is-manager 8
+            'name' => 'ronaldo',
+            'family' => 'ronaldo',
+            'username' => 'ronaldo',
+            'email' => 'p2ronaldo@p.com',
+            'password' => Hash::make('secret'),
+            'two_factor_expiry' => '2020-11-22 06:29:29',
+            'session_id' => 'jQQ2lNkcsid8ZJBp7vHyVfcy4f790ZRohTdeGG8d',
+            'api_token' => 'WgvwYZpvAApBwvLXiX3IkYNNdUlsFZW02cPVaCLEh71Mw2bnzCnJfJiJl836',
+            'remember_token' => 'j5alcluEhrEGXPWz0kdklOpuoqvR9kDhymSHcOcNT7qRDpEcdLkj52dhko1X',
+        ]);
+
+
+
     }
 }

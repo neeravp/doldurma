@@ -14,46 +14,54 @@ class PostsSeeder extends Seeder
      */
     public function run()
     {
-        Post::create([
+        Post::create([ //id:1
             'user_id' => 1,
             'title' => 'LARAVEL Test Test Test',
             'description' => '<p>Test Test Test</p>',
-            //'category_id'    => 9,
         ]); //'name' => 'alfred', is-portal-manager
 
-        Post::create([
+        Post::create([ //id:2
             'user_id' => 2,
             'title' => 'WEB Test Test Test',
             'description' => '<p>Test Test Test</p>',
-            //'category_id'    => 7,
         ]); //'name' => 'ella', is-manager
 
-        Post::create([
+        Post::create([ //id:3
             'user_id' => 3,
             'title' => 'HTML Test Test Test',
             'description' => '<p>Test Test Test</p>',
-            //'category_id'    => 5,
         ]);//'name' => 'elizabeth', is-manager
 
-        Post::create([
+        Post::create([ //id:4
             'user_id' => 4,
             'title' => 'CSS Test Test Test',
             'description' => '<p>Test Test Test</p>',
-            //'category_id'    => 6
         ]); // 'name' => 'scarlett', is-editor
 
-        Post::create([
+        Post::create([ //id:5
             'user_id' => 5,
             'title' => 'LUMEN Test Test Test',
             'description' => '<p>Test Test Test</p>',
-            //'category_id'    => 10, //laravel
         ]); //'name' => 'william', is-writer
 
-        Post::create([
+        Post::create([ //id:6
             'user_id' => 6,
             'title' => 'FLUTTER Test Test Test',
             'description' => '<p>Test Test Test</p>',
-            //'category_id'    => 7, //flutter
         ]); //'name' => 'william',is-writer
+
+
+        Post::create([ //id:7
+            'user_id' => 7,
+            'title' => 'IMAGES Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'messi',is-manager
+
+
+        Post::create([ //id:8
+            'user_id' => 8,
+            'title' => 'SOUNDS Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'ronaldo',is-manager
     }
 }

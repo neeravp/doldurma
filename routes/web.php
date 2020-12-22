@@ -22,4 +22,4 @@ Route::get('/', function () {
     return view('welcome', ['posts' => $user->posts()]);
 });
 
-Route::get('/posts/{user:name}', UserPostController::class);
+Route::get('/posts/{user:username}', UserPostController::class);

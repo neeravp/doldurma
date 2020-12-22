@@ -9,12 +9,14 @@
             <h1 class="text-2xl text-blue-500">Posts for {{ $user->name }}</h1>
         </div>
 
+        <p>posts count: {{$posts->count()}}</p>
+        <br/>
         @foreach ($posts as $post)
             <article>
-                <h1 class="text-2xl text-gray-700">{{ $post->title }}</h1>
-                <div class="text-gray-500">
+                <p class="text-gray-700">{{ $post->title }}</p>
+                {{--<div class="text-gray-500">
                     {!! $post->description !!}
-                </div>
+                </div>--}}
             </article>
         @endforeach
     </section>
