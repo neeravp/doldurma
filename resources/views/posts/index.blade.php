@@ -18,5 +18,6 @@
                 @endforeach
             @endforeach
         </ul>
+        <input type="hidden" name="dummy" value="dummy">
     </section>
 @endsection

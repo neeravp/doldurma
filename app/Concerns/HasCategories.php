@@ -18,7 +18,7 @@ trait HasCategories
     }
 
     /**
-     * Get all Categories with deeply nested subCategories 
+     * Get all Categories with deeply nested subcategories 
      * as tree structure for the logged in Portal Manager.
      */
     protected function categoriesForPortalManager()
@@ -26,15 +26,15 @@ trait HasCategories
         return $this->categories()
             ->whereNull('parent_id')
             ->with([
-                'subCategories' => fn($query)  => $query->forUser($this->id),
-                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
-                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+                'subcategories' => fn($query)  => $query->forUser($this->id),
+                'subcategories.subcategories' => fn($query) => $query->forUser($this->id),
+                'subcategories.subcategories.subcategories' => fn($q) => $q->forUser($this->id)
             ])
             ->get();
     }
 
     /**
-     * Get all Categories with deeply nested subCategories 
+     * Get all Categories with deeply nested subcategories 
      * as tree structure for the logged in Manager.
      */
     protected function categoriesForManager()
@@ -42,15 +42,15 @@ trait HasCategories
         return $this->categories()
             ->whereIn('parent_id', Category::topLevel()->pluck('id'))
             ->with([
-                'subCategories' => fn($query)  => $query->forUser($this->id),
-                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
-                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+                'subcategories' => fn($query)  => $query->forUser($this->id),
+                'subcategories.subcategories' => fn($query) => $query->forUser($this->id),
+                'subcategories.subcategories.subcategories' => fn($q) => $q->forUser($this->id)
             ])
             ->get();
     }
 
     /**
-     * Get all Categories with deeply nested subCategories 
+     * Get all Categories with deeply nested subcategories 
      * as tree structure for the logged in Editor.
      */
     protected function categoriesForEditor()
@@ -58,24 +58,24 @@ trait HasCategories
         return $this->categories()
             ->whereIn('parent_id', Category::secondLevel()->pluck('id'))
             ->with([
-                'subCategories' => fn($query)  => $query->forUser($this->id),
-                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
-                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+                'subcategories' => fn($query)  => $query->forUser($this->id),
+                'subcategories.subcategories' => fn($query) => $query->forUser($this->id),
+                'subcategories.subcategories.subcategories' => fn($q) => $q->forUser($this->id)
             ])
             ->get();
     }
 
     /**
-     * Get all Categories with deeply nested subCategories 
+     * Get all Categories with deeply nested subcategories 
      * as tree structure for the logged in Writer.
      */
     protected function categoriesForWriter()
     {
         return $this->categories()
             ->with([
-                'subCategories' => fn($query)  => $query->forUser($this->id),
-                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
-                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+                'subcategories' => fn($query)  => $query->forUser($this->id),
+                'subcategories.subcategories' => fn($query) => $query->forUser($this->id),
+                'subcategories.subcategories.subcategories' => fn($q) => $q->forUser($this->id)
             ])
             ->get();
     }
@@ -87,21 +87,21 @@ trait HasCategories
      */
     public function availableCategoriesFlattened()
     {      
-       $subCategories = $this->availableCategories()->pluck('subCategories')->flatten();
-       $level2SubCategories = $subCategories->pluck('subCategories')->flatten();
-       $level3SubCategories = $level2SubCategories->pluck('subCategories')->flatten();
+       $subcategories = $this->availableCategories()->pluck('subcategories')->flatten();
+       $level2SubCategories = $subcategories->pluck('subcategories')->flatten();
+       $level3SubCategories = $level2SubCategories->pluck('subcategories')->flatten();
       
        
        return $this->availableCategories()->map(function($category){
-            unset($category->subCategories);
+            unset($category->subcategories);
             return $category;
        })
-       ->concat($subCategories->map(function($subCategory){
-           unset($subCategory->subCategories);           
+       ->concat($subcategories->map(function($subCategory){
+           unset($subCategory->subcategories);           
            return $subCategory;
        }))
        ->concat($level2SubCategories->map(function($l2Cat) {
-           unset($l2Cat->subCategories);
+           unset($l2Cat->subcategories);
            return $l2Cat;
        }))
        ->concat($level3SubCategories);

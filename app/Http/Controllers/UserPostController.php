@@ -9,6 +9,10 @@ class UserPostController extends Controller
 {
     public function __invoke(Request $request, User $user)
     {
-        return view('posts.index', ['categories' => $user->availableCategories()->unique('id'), 'user' => $user]);
+        // return $user->availableCategories();
+        return view('posts.index', [
+            'categories' => $user->availableCategories(), 
+            'user' => $user
+        ]);
     }
 }

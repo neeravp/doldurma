@@ -38,7 +38,7 @@ class HasCaegoriesTest extends TestCase
             ->where('user_id', $manager->id)
             ->whereIn('category_id', Category::secondLevel()->pluck('id'))
             ->pluck('category_id');
-       
+        // dd($manager->availableCategories()->toArray());
         $this->assertCount($managerCategoryIds->count(), $manager->availableCategories());
         $this->assertCount(
             $manager->categories->count(),
