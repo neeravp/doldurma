@@ -9,15 +9,14 @@
             <h1 class="text-2xl text-blue-500">Posts for {{ $user->name }}</h1>
         </div>
 
-        <p>posts count: {{$posts->count()}}</p>
         <br/>
-        @foreach ($posts as $post)
-            <article>
-                <p class="text-gray-700">{{ $post->title }}</p>
-                {{--<div class="text-gray-500">
-                    {!! $post->description !!}
-                </div>--}}
-            </article>
-        @endforeach
+        <ul>
+            @foreach ($categories as $category)
+                <p>{{ $category->name }}</p>
+                @foreach($category->subcategories as $subcategories)
+                    @include('posts.child',['child'=>$subcategories])
+                @endforeach
+            @endforeach
+        </ul>
     </section>
 @endsection
