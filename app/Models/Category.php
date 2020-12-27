@@ -83,4 +83,12 @@ class Category extends Model
     {
         return static::where('parent_id', static::secondLevel()->pluck('id'));
     }
+
+    /**
+     * Query constraint to get Categories which has an associated user with given $userId.
+     */
+    public function scopeForUser(Builder $query, int $userId): Builder
+    {
+        return $query->whereHas('users', fn($query) => $query->whereId($userId));
+    }
 }

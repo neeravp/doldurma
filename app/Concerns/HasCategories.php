@@ -25,7 +25,11 @@ trait HasCategories
     {
         return $this->categories()
             ->whereNull('parent_id')
-            ->with('subCategories.subCategories.subCategories')
+            ->with([
+                'subCategories' => fn($query)  => $query->forUser($this->id),
+                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
+                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+            ])
             ->get();
     }
 
@@ -37,7 +41,11 @@ trait HasCategories
     {
         return $this->categories()
             ->whereIn('parent_id', Category::topLevel()->pluck('id'))
-            ->with('subCategories.subCategories.subCategories')
+            ->with([
+                'subCategories' => fn($query)  => $query->forUser($this->id),
+                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
+                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+            ])
             ->get();
     }
 
@@ -49,7 +57,11 @@ trait HasCategories
     {
         return $this->categories()
             ->whereIn('parent_id', Category::secondLevel()->pluck('id'))
-            ->with('subCategories.subCategories.subCategories')
+            ->with([
+                'subCategories' => fn($query)  => $query->forUser($this->id),
+                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
+                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+            ])
             ->get();
     }
 
@@ -60,7 +72,11 @@ trait HasCategories
     protected function categoriesForWriter()
     {
         return $this->categories()
-            ->with('subCategories.subCategories.subCategories')
+            ->with([
+                'subCategories' => fn($query)  => $query->forUser($this->id),
+                'subCategories.subCategories' => fn($query) => $query->forUser($this->id),
+                'subCategories.subCategories.subCategories' => fn($q) => $q->forUser($this->id)
+            ])
             ->get();
     }
 
