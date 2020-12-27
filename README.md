@@ -26,4 +26,3 @@ is-writer and should see this post ids: nothing
 ## linda (only their posts)
 
 is-writer and should see this post ids: 6
-

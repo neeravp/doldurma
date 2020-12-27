@@ -106,6 +106,8 @@ class User extends Authenticatable
      */
     public function roles(): BelongsToMany
     {
+        //dd('ab');
+
         return $this->belongsToMany(Role::class);
     }
 
@@ -118,6 +120,7 @@ class User extends Authenticatable
      */
     public function hasRole($role)
     {
+        //dd('a');
         /** When $role is an object of class Role */
         if ($role instanceof Role) {
             return !!$role->intersect($this->roles)->count();

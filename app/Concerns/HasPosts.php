@@ -27,6 +27,7 @@ trait HasPosts
     public function postsForPortalManager(): Collection
     {
         return Category::with(['subcategories.posts.language', 'posts.language'])
+            ->orderBy('id', 'ASC')
             ->get()
             ->pluck('posts')
             ->filter(function ($collection) {
@@ -41,12 +42,13 @@ trait HasPosts
     public function postsForManager(): Collection
     {
         return $this->categories()
-        ->with('posts.language')
-        ->get()
-        ->pluck('posts')
-        ->filter(function ($collection) {
-            return !!$collection->count();
-        });
+            ->with('posts.language')
+            ->orderBy('id', 'ASC')
+            ->get()
+            ->pluck('posts')
+            ->filter(function ($collection) {
+                return !!$collection->count();
+            });
     }
 
     /**
@@ -55,14 +57,13 @@ trait HasPosts
      */
     public function postsForEditor(): Collection
     {
-        return $this->categories()->with(['posts' => function ($query) {
-            $query->where('user_id', $this->id)->with('language');
-        }])
-        ->get()
-        ->pluck('posts')
-        ->filter(function ($collection) {
-            return !!$collection->count();
-        });
+        return $this->categories()->with('posts.language')
+            ->orderBy('id', 'ASC')
+            ->get()
+            ->pluck('posts')
+            ->filter(function ($collection) {
+                return !!$collection->count();
+            });
     }
 
     /**
@@ -74,10 +75,11 @@ trait HasPosts
         return $this->categories()->with(['posts' => function ($query) {
             $query->where('user_id', $this->id)->with('language');
         }])
-        ->get()
-        ->pluck('posts')
-        ->filter(function ($collection) {
-            return !!$collection->count();
-        });
+            ->orderBy('id', 'ASC')
+            ->get()
+            ->pluck('posts')
+            ->filter(function ($collection) {
+                return !!$collection->count();
+            });
     }
 }
