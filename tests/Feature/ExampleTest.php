@@ -14,9 +14,9 @@ class ExampleTest extends TestCase
 
         //When: ella tries to retrieve posts
         $posts = $ella->posts();
-
+        
         //Then: ella should be able to see posts only from web category
-        $this->assertTrue($posts->contains('title', 'Post on Laravel category'));
+        $this->assertTrue($posts->contains('title', 'WEB Test Test Test'));
         $this->assertFalse($posts->contains('title', 'Post on Flutter category'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -51,9 +52,35 @@ class Category extends Model
         return $this->belongsToMany(Post::class);
     }
 
-
-    public function users()
+    /**
+     * Get all Users which are associated with the current Category.
+     */
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * Query to get all top level categories.
+     */
+    public static function topLevel():Builder
+    {
+        return static::whereNull('parent_id');
+    }
+
+    /**
+     * Query to get all direct child (subCategories) of top level categories.
+     */
+    public static function secondLevel()
+    {
+        return static::where('parent_id', static::topLevel()->pluck('id'));
+    }
+
+    /**
+     * Query to get all direct child (subCategories) of second level categories.
+     */
+    public static function thirdLevel()
+    {
+        return static::where('parent_id', static::secondLevel()->pluck('id'));
     }
 }

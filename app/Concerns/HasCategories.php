@@ -7,61 +7,87 @@ use App\Models\Category;
 trait HasCategories
 {
     /**
-     * For your use case where you are associating parent categories as well as subCategories
-     * with user via the category_user table, except for the Portal Manager you can just
-     * return $this->categories for all other users - just use availableCategories()
-     * No need to use availableCategoriesFlattened() for your particular use case
-     * since even childrenCategories/subCategories are being associated with the
-     * user via the pivot table so no need to eager load subCategories relation.
-     * 
-     * If you would have been associating only the parent categories with the user via category_user pivot table
-     * and had all the subCategories of the associated parent Categories (where parent_id is null) automatically
-     * get available to the user then you can use the or parts in both methods availableCategories and 
-     * availableCategoriesFlattened.
+     * Get all Categories and deeply nested subCatetories
+     * for the currently logged in User as per prime Role.
      */
-
     public function availableCategories()
     {        
-        if($this->roles->contains('label', 'is-portal-manager')) {
-            return Category::all();
-        }
+        $method = 'categoriesFor' . $this->primeRole();
 
-
-
-        //Scenario when associating parent categories as well as subCategories with user via category_user pivot table
-        return $this->categories;
-
-        /*--------------------------------------------------OR--------------------------------------------------*/
-        /**
-         * Scenario when you are only associating the parent categories with the user via category_user pivot table
-         * i.e. associating all categories where the parent_id is null
-         */
-
-        //return $this->categories()->with('subCategories')->get();
+        return $this->{$method}();
     }
 
+    /**
+     * Get all Categories with deeply nested subCategories 
+     * as tree structure for the logged in Portal Manager.
+     */
+    protected function categoriesForPortalManager()
+    {
+        return $this->categories()
+            ->whereNull('parent_id')
+            ->with('subCategories.subCategories.subCategories')
+            ->get();
+    }
+
+    /**
+     * Get all Categories with deeply nested subCategories 
+     * as tree structure for the logged in Manager.
+     */
+    protected function categoriesForManager()
+    {
+        return $this->categories()
+            ->whereIn('parent_id', Category::topLevel()->pluck('id'))
+            ->with('subCategories.subCategories.subCategories')
+            ->get();
+    }
+
+    /**
+     * Get all Categories with deeply nested subCategories 
+     * as tree structure for the logged in Editor.
+     */
+    protected function categoriesForEditor()
+    {
+        return $this->categories()
+            ->whereIn('parent_id', Category::secondLevel()->pluck('id'))
+            ->with('subCategories.subCategories.subCategories')
+            ->get();
+    }
+
+    /**
+     * Get all Categories with deeply nested subCategories 
+     * as tree structure for the logged in Writer.
+     */
+    protected function categoriesForWriter()
+    {
+        return $this->categories()
+            ->with('subCategories.subCategories.subCategories')
+            ->get();
+    }
+
+    /**
+     * Get a flattened collection of Categories for the logged in User.
+     * All parent categories and deeply nested categories as flat
+     * collection without any tree structure or nesting.
+     */
     public function availableCategoriesFlattened()
     {      
-        if($this->roles->contains('label', 'is-portal-manager')) {
-            return Category::all();
-        }
-
-        /** 
-         * Scenario when associating parent categories as well as subCategories with user via category_user pivot table
-         */
-        return $this->categories;
-
-        /*--------------------------------------------------OR--------------------------------------------------*/
-        /**
-         * Scenario when you are only associating the parent categories with the user via category_user pivot table
-         * i.e. associating all categories where the parent_id is null
-         * Piping the output through unique() will take care of either situations
-         * So if you want to keep the option of associating only parent categories with user open for future
-         * can still use this part of code with unique() tacked at the end
-         */
-
-        
-         // $categories = $this->categories()->with('subCategories')->get()->pluck('subCategories')->flatten();
-         // return $this->categories->concat($subCategories)->unique();
+       $subCategories = $this->availableCategories()->pluck('subCategories')->flatten();
+       $level2SubCategories = $subCategories->pluck('subCategories')->flatten();
+       $level3SubCategories = $level2SubCategories->pluck('subCategories')->flatten();
+      
+       
+       return $this->availableCategories()->map(function($category){
+            unset($category->subCategories);
+            return $category;
+       })
+       ->concat($subCategories->map(function($subCategory){
+           unset($subCategory->subCategories);           
+           return $subCategory;
+       }))
+       ->concat($level2SubCategories->map(function($l2Cat) {
+           unset($l2Cat->subCategories);
+           return $l2Cat;
+       }))
+       ->concat($level3SubCategories);
     }
 }

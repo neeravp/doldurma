@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use App\Concerns\HasCategories;
 use App\Concerns\HasPosts;
 use Illuminate\Notifications\Notifiable;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @property int $id
@@ -91,7 +93,52 @@ class User extends Authenticatable
      */
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        $categories = $this->belongsToMany(Category::class);
+
+        // if(!$this->isPortalManager()) {
+        //     $categories->whereIn('parent_id', Category::topLevel()->pluck('id'));
+        // }
+        return $categories;
+    }
+
+    /**
+     * Determine whether the current user has prime Role of Portal Manager.
+     */
+    public function isPortalManager(): Boolean
+    {
+        return $this->roles->contains('label', 'is-portal-manager');
+    }
+
+    /**
+     * Determine whether the current user has prime Role of Manager.
+     */
+    public function isManager(): Boolean
+    {
+        return $this->roles->contains('label', 'is-manager');
+    }
+
+    /**
+     * Determine whether the current user has prime Role of Editor.
+     */
+    public function isEditor()
+    {
+        return $this->roles->contains('label', 'is-editor');
+    }
+
+    /**
+     * Determine whether the current user has prime Role of Writer.
+     */
+    public function isWriter()
+    {
+        return $this->roles->contains('label', 'is-writer');
+    }
+
+    /**
+     * Get the prime Role for the current User.
+     */
+    public function primeRole()
+    {
+        return Str::studly(str_replace('is-', '', $this->roles->first()->label));
     }
 
     /**

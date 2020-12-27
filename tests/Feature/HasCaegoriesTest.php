@@ -11,30 +11,38 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
+/**@group Categories */
 class HasCaegoriesTest extends TestCase
 {
    /** @test */
+   /**@group Categories */
    public function it_can_get_all_categories_for_portal_manager ()
    {
        $portalManager = User::whereHas('roles', fn($query) => $query->where('label', 'is-portal-manager'))->first();
-       
-       $this->assertCount(Category::count(), $portalManager->availableCategories());
-       $this->assertCount(Category::count(), $portalManager->availableCategoriesFlattened());
+        
+        $portalManagerCategoryIds = DB::table('category_user')
+            ->where('user_id', $portalManager->id)
+            ->whereIn('category_id', Category::topLevel()->pluck('id'))
+            ->pluck('category_id');
+
+       $this->assertCount($portalManagerCategoryIds->count(), $portalManager->availableCategories());
+       $this->assertCount($portalManager->categories->count(), $portalManager->availableCategoriesFlattened());
    }
 
    /** @test */
    public function it_can_get_available_categories_for_manager ()
    {
-       $manager = User::whereHas('roles', fn($query) => $query->where('label', 'is-manager'))->firstOrFail();
-
-    //    dd($manager->availableCategoriesFlattened()->toArray(), PHP_EOL . "Next" . PHP_EOL, $manager->availableCategories()->toArray());
-        $managerCategoryIds = DB::table('category_user')->where('user_id', $manager->id)->pluck('category_id');
-        $managerSubCategoriesCount = Category::whereIn('parent_id', $managerCategoryIds)->count();
+        $manager = User::whereHas('roles', fn($query) => $query->where('label', 'is-manager'))->firstOrFail();
+        
+        $managerCategoryIds = DB::table('category_user')
+            ->where('user_id', $manager->id)
+            ->whereIn('category_id', Category::secondLevel()->pluck('id'))
+            ->pluck('category_id');
        
-       $this->assertCount($managerCategoryIds->count(), $manager->availableCategories());
-       $this->assertCount(
-           $managerCategoryIds->count(),
-           $manager->availableCategoriesFlattened()
+        $this->assertCount($managerCategoryIds->count(), $manager->availableCategories());
+        $this->assertCount(
+            $manager->categories->count(),
+            $manager->availableCategoriesFlattened()
         );
    }
 
@@ -42,13 +50,15 @@ class HasCaegoriesTest extends TestCase
    public function it_can_get_available_categories_for_editor ()
    {
         $editor = User::whereHas('roles', fn($query) => $query->where('label', 'is-editor'))->firstOrFail();
-
-        $editorCategoryIds = DB::table('category_user')->where('user_id', $editor->id)->pluck('category_id');
-        $editorSubCategoriesCount = Category::whereIn('parent_id', $editorCategoryIds)->count();
+        
+        $editorCategoryIds = DB::table('category_user')
+            ->where('user_id', $editor->id)
+            ->whereIn('category_id', Category::thirdLevel()->pluck('id'))
+            ->pluck('category_id');
         
         $this->assertCount($editorCategoryIds->count(), $editor->availableCategories());
         $this->assertCount(
-            $editorCategoryIds->count(), 
+            $editor->categories->count(), 
             $editor->availableCategoriesFlattened()
         );
        
@@ -58,13 +68,10 @@ class HasCaegoriesTest extends TestCase
    public function it_can_get_available_categories_for_writer ()
    {
         $writer = User::whereHas('roles', fn($query) => $query->where('label', 'is-writer'))->firstOrFail();
-
-        $writerCategoryIds = DB::table('category_user')->where('user_id', $writer->id)->pluck('category_id');
-        $writerSubCategoriesCount = Category::whereIn('parent_id', $writerCategoryIds)->count();
         
-        $this->assertCount($writerCategoryIds->count(), $writer->availableCategories());
+        $this->assertCount($writer->categories->count(), $writer->availableCategories());
         $this->assertCount(
-            $writerCategoryIds->count(), 
+            $writer->categories->count(), 
             $writer->availableCategoriesFlattened()
         );
        
