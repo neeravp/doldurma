@@ -32,7 +32,7 @@ class Category extends Model
      */
     public function parent(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id', 'parent');
+        return $this->belongsTo(Category::class, 'parent_id', 'id', 'parent');
     }
 
     /**
@@ -40,7 +40,7 @@ class Category extends Model
      */
     public function subcategories(): HasMany
     {
-        return $this->hasMany(Category::class, 'category_id', 'id');
+        return $this->hasMany(Category::class, 'parent_id', 'id');
     }
 
     /**

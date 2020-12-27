@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Concerns\HasCategories;
 use App\Concerns\HasPosts;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -37,7 +38,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasPosts;
+    use HasFactory, Notifiable, HasPosts, HasCategories;
 
     /**
      * The attributes that are mass assignable.
