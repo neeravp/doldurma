@@ -27,12 +27,13 @@ class HasCaegoriesTest extends TestCase
    {
        $manager = User::whereHas('roles', fn($query) => $query->where('label', 'is-manager'))->firstOrFail();
 
+    //    dd($manager->availableCategoriesFlattened()->toArray(), PHP_EOL . "Next" . PHP_EOL, $manager->availableCategories()->toArray());
         $managerCategoryIds = DB::table('category_user')->where('user_id', $manager->id)->pluck('category_id');
         $managerSubCategoriesCount = Category::whereIn('parent_id', $managerCategoryIds)->count();
        
        $this->assertCount($managerCategoryIds->count(), $manager->availableCategories());
        $this->assertCount(
-           $managerCategoryIds->count() + $managerSubCategoriesCount, 
+           $managerCategoryIds->count(),
            $manager->availableCategoriesFlattened()
         );
    }
@@ -47,7 +48,7 @@ class HasCaegoriesTest extends TestCase
         
         $this->assertCount($editorCategoryIds->count(), $editor->availableCategories());
         $this->assertCount(
-            $editorCategoryIds->count() + $editorSubCategoriesCount, 
+            $editorCategoryIds->count(), 
             $editor->availableCategoriesFlattened()
         );
        
@@ -63,7 +64,7 @@ class HasCaegoriesTest extends TestCase
         
         $this->assertCount($writerCategoryIds->count(), $writer->availableCategories());
         $this->assertCount(
-            $writerCategoryIds->count() + $writerSubCategoriesCount, 
+            $writerCategoryIds->count(), 
             $writer->availableCategoriesFlattened()
         );
        
