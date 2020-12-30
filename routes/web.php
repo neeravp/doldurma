@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserPostController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,10 @@ use App\Http\Controllers\UserPostController;
 
 Route::get('/', function () {
     // $user = User::where('name', 'ella')->firstOrFail();
-    $user = User::whereName('scarlett')->firstOrFail();
+    $user = User::whereName('scarlett')->firstOrFail(); 
 
-    return view('welcome', ['posts' => $user->posts()]);
+    return view('welcome', ['posts' => $user->posts()]
+    );
 });
 
 Route::get('/posts/{user:username}', UserPostController::class);

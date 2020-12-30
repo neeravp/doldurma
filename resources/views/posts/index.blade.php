@@ -12,12 +12,11 @@
         <br/>
         <ul>
             @foreach ($categories as $category)
-                <p>{{ $category->name }}</p>
+                <p>{{ $category->name }}</p>                
                 @foreach($category->subcategories as $subcategories)
-                    @include('posts.child',['child'=>$subcategories])
+                        @include('posts.child',['child'=> $subcategories])
                 @endforeach
             @endforeach
         </ul>
-        <input type="hidden" name="dummy" value="dummy">
     </section>
 @endsection

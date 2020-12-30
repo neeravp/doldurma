@@ -101,10 +101,17 @@ class User extends Authenticatable
         return $categories;
     }
 
+    public function parentCategories()
+    {
+        return $this->belongsToMany(Category::class)
+        ->whereNotIn('parent_id', $this->categories->pluck('id'))
+        ->orWhereNull('parent_id');
+    }
+
     /**
      * Determine whether the current user has prime Role of Portal Manager.
      */
-    public function isPortalManager(): Boolean
+    public function isPortalManager(): bool
     {
         return $this->roles->contains('label', 'is-portal-manager');
     }
@@ -112,7 +119,7 @@ class User extends Authenticatable
     /**
      * Determine whether the current user has prime Role of Manager.
      */
-    public function isManager(): Boolean
+    public function isManager(): bool
     {
         return $this->roles->contains('label', 'is-manager');
     }
@@ -120,7 +127,7 @@ class User extends Authenticatable
     /**
      * Determine whether the current user has prime Role of Editor.
      */
-    public function isEditor()
+    public function isEditor(): bool
     {
         return $this->roles->contains('label', 'is-editor');
     }
@@ -128,7 +135,7 @@ class User extends Authenticatable
     /**
      * Determine whether the current user has prime Role of Writer.
      */
-    public function isWriter()
+    public function isWriter(): bool
     {
         return $this->roles->contains('label', 'is-writer');
     }

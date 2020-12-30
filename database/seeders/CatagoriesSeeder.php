@@ -39,62 +39,66 @@ class CatagoriesSeeder extends Seeder
             'parent_id' => 2, //parent:web
             'name' => 'css'
         ]);
-        Category::create([ //mobile  //id:7
-            'parent_id' => 3, //parent:mobile
-            'name' => 'flutter'
+        Category::create([ //web  //id:7
+            'parent_id' => 2, //parent:web
+            'name' => 'js'
         ]);
         Category::create([ //mobile  //id:8
             'parent_id' => 3, //parent:mobile
+            'name' => 'flutter'
+        ]);
+        Category::create([ //mobile  //id:9
+            'parent_id' => 3, //parent:mobile
             'name' => 'java'
         ]);
-        Category::create([ //php  //id:9
+        Category::create([ //php  //id:10
             'parent_id' => 4, //parent:web\php
             'name' => 'laravel'
         ]);
-        Category::create([ //php  //id:10
+        Category::create([ //php  //id:11
             'parent_id' => 4, //parent:web\php
             'name' => 'lumen'
         ]);
 
         /*-------------------------------------------*/
 
-        Category::create([ //root  id:11
+        Category::create([ //root  id:12
             'parent_id' => null, //parent
             'name' => 'multimedia'
         ]);
 
-        Category::create([ //images  id:12
-            'parent_id' => 11, //parent:multimedia
+        Category::create([ //images  id:13
+            'parent_id' => 12, //parent:multimedia
             'name' => 'images'
         ]);
-        Category::create([ //sounds  id:13
-            'parent_id' => 11, //parent:multimedia
+        Category::create([ //sounds  id:14
+            'parent_id' => 12, //parent:multimedia
             'name' => 'sounds'
         ]);
 
         Category::create([ //root  id:14
-            'parent_id' => 12, //parent:multimedia\images\
+            'parent_id' => 13, //parent:multimedia\images\
             'name' => 'gif'
         ]);
         Category::create([ //root  id:15
-            'parent_id' => 12, //parent:multimedia\images\
+            'parent_id' => 13, //parent:multimedia\images\
             'name' => 'png'
         ]);
         Category::create([ //root  id:16
-            'parent_id' => 12, //parent:multimedia\images\
+            'parent_id' => 13, //parent:multimedia\images\
             'name' => 'jpg'
         ]);
         Category::create([ //root  id:17
-            'parent_id' => 12, //parent:multimedia\images\
+            'parent_id' => 13, //parent:multimedia\images\
             'name' => 'bmp'
         ]);
 
         Category::create([ //root  id:18
-            'parent_id' => 13, //parent:multimedia\sounds
+            'parent_id' => 14, //parent:multimedia\sounds
             'name' => 'ogg'
         ]);
         Category::create([ //root  id:19
-            'parent_id' => 13, //parent:multimedia\sounds
+            'parent_id' => 14, //parent:multimedia\sounds
             'name' => 'mp3'
         ]);
 

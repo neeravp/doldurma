@@ -16,7 +16,7 @@ class UsersSeeder extends Seeder
     public function run()
     {
         User::create([ //portal manager 1
-            'name' => 'alfred',
+            'name' => 'Alfred',
             'family' => 'alfred',
             'username' => 'alfred',
             'email' => 'palfred@p.com',
@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
         ]);
 
         User::create([ //is-manager 2
-            'name' => 'ella',
+            'name' => 'Ella',
             'family' => 'ella',
             'username' => 'ella',
             'email' => 'p1ella@p.com',
@@ -40,7 +40,7 @@ class UsersSeeder extends Seeder
         ]);
 
         User::create([ //is-manager 3
-            'name' => 'elizabeth',
+            'name' => 'Elizabeth',
             'family' => 'elizabeth',
             'username' => 'elizabeth',
             'email' => 'p2elizabeth@p.com',
@@ -52,7 +52,7 @@ class UsersSeeder extends Seeder
         ]);
 
         User::create([ //is-editor 4
-            'name' => 'scarlett',
+            'name' => 'Scarlett',
             'family' => 'scarlett',
             'username' => 'scarlett',
             'email' => 'p2scarlett@p.com',
@@ -64,7 +64,7 @@ class UsersSeeder extends Seeder
         ]);
 
         User::create([ //is-writer 5
-            'name' => 'william',
+            'name' => 'William',
             'family' => 'william',
             'username' => 'william',
             'email' => 'p2william@p.com',
@@ -76,7 +76,7 @@ class UsersSeeder extends Seeder
         ]);
 
         User::create([ //is-writer 6
-            'name' => 'linda',
+            'name' => 'Linda',
             'family' => 'linda',
             'username' => 'linda',
             'email' => 'p2linda@p.com',
@@ -89,7 +89,7 @@ class UsersSeeder extends Seeder
 
 
         User::create([ //is-manager 7
-            'name' => 'messi',
+            'name' => 'Messi',
             'family' => 'messi',
             'username' => 'messi',
             'email' => 'p2messi@p.com',
@@ -102,10 +102,36 @@ class UsersSeeder extends Seeder
 
 
         User::create([ //is-manager 8
-            'name' => 'ronaldo',
+            'name' => 'Ronaldo',
             'family' => 'ronaldo',
             'username' => 'ronaldo',
             'email' => 'p2ronaldo@p.com',
+            'password' => Hash::make('secret'),
+            'two_factor_expiry' => '2020-11-22 06:29:29',
+            'session_id' => 'jQQ2lNkcsid8ZJBp7vHyVfcy4f790ZRohTdeGG8d',
+            'api_token' => 'WgvwYZpvAApBwvLXiX3IkYNNdUlsFZW02cPVaCLEh71Mw2bnzCnJfJiJl836',
+            'remember_token' => 'j5alcluEhrEGXPWz0kdklOpuoqvR9kDhymSHcOcNT7qRDpEcdLkj52dhko1X',
+        ]);
+
+
+        User::create([ //is-editor 9
+            'name' => 'Jack',
+            'family' => 'jack',
+            'username' => 'jack',
+            'email' => 'p2jack@p.com',
+            'password' => Hash::make('secret'),
+            'two_factor_expiry' => '2020-11-22 06:29:29',
+            'session_id' => 'jQQ2lNkcsid8ZJBp7vHyVfcy4f790ZRohTdeGG8d',
+            'api_token' => 'WgvwYZpvAApBwvLXiX3IkYNNdUlsFZW02cPVaCLEh71Mw2bnzCnJfJiJl836',
+            'remember_token' => 'j5alcluEhrEGXPWz0kdklOpuoqvR9kDhymSHcOcNT7qRDpEcdLkj52dhko1X',
+        ]);
+
+
+        User::create([ //is-manager 10
+            'name' => 'Jim',
+            'family' => 'jim',
+            'username' => 'jim',
+            'email' => 'p2jim@p.com',
             'password' => Hash::make('secret'),
             'two_factor_expiry' => '2020-11-22 06:29:29',
             'session_id' => 'jQQ2lNkcsid8ZJBp7vHyVfcy4f790ZRohTdeGG8d',

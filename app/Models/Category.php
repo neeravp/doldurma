@@ -28,6 +28,8 @@ class Category extends Model
 {
     use HasFactory;
 
+    // protected $with = ['subcategories'];
+
     /**
      * Get the parent Category to which the current Category belongs.
      */
@@ -90,5 +92,18 @@ class Category extends Model
     public function scopeForUser(Builder $query, int $userId): Builder
     {
         return $query->whereHas('users', fn($query) => $query->whereId($userId));
+    }
+
+    public function getSubcategoryIds()
+    {
+        $ids = $this->subcategories->pluck('id');
+        
+        $this->subcategories->each(function($sub) use(&$ids){            
+            if($sub->subcategories->count()) {            
+                $ids->push($sub->getSubcategoryIds());
+            }
+        });      
+
+        return $ids->flatten();
     }
 }

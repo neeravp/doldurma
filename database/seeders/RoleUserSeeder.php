@@ -26,5 +26,8 @@ class RoleUserSeeder extends Seeder
 
         DB::table('role_user')->insert(['role_id' => 2, 'user_id' => 7]); //is-manager - messi
         DB::table('role_user')->insert(['role_id' => 2, 'user_id' => 8]); //is-manager - ronaldo
+
+        DB::table('role_user')->insert(['role_id' => 3, 'user_id' => 9]); //is-editor - jack
+        DB::table('role_user')->insert(['role_id' => 4, 'user_id' => 10]); //is-writer - jim
     }
 }
