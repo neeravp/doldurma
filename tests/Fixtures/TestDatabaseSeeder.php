@@ -195,9 +195,10 @@ class TestDatabaseSeeder extends Seeder
         DB::table('category_user')->insert(['category_id' => 11, 'user_id'=> 1]);//'lumen'
 
         //Ella: manager
-        DB::table('category_user')->insert(['category_id' => 4, 'user_id' => 2]);//'php'
-        DB::table('category_user')->insert(['category_id' => 10, 'user_id' => 2]);//'laravel'
-        DB::table('category_user')->insert(['category_id' => 11, 'user_id' => 2]);//'lumen'
+        DB::table('category_user')->insert(['category_id' => 2, 'user_id' => 2]);//'php'
+        // DB::table('category_user')->insert(['category_id' => 4, 'user_id' => 2]);//'php'
+        // DB::table('category_user')->insert(['category_id' => 10, 'user_id' => 2]);//'laravel'
+        // DB::table('category_user')->insert(['category_id' => 11, 'user_id' => 2]);//'lumen'
 
         //Elizabeth: manager
         DB::table('category_user')->insert(['category_id' => 2, 'user_id' => 3]);//'web'

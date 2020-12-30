@@ -93,14 +93,12 @@ class User extends Authenticatable
      */
     public function categories(): BelongsToMany
     {
-        $categories = $this->belongsToMany(Category::class);
-
-        // if(!$this->isPortalManager()) {
-        //     $categories->whereIn('parent_id', Category::topLevel()->pluck('id'));
-        // }
-        return $categories;
+        return $this->belongsToMany(Category::class);
     }
 
+    /**
+     * Get all top level Categories for the current User.
+     */
     public function parentCategories()
     {
         return $this->belongsToMany(Category::class)

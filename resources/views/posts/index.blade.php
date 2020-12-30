@@ -12,10 +12,13 @@
         <br/>
         <ul>
             @foreach ($categories as $category)
-                <p>{{ $category->name }}</p>                
-                @foreach($category->subcategories as $subcategories)
+                <p>{{ $category->name }}</p>  
+                
+                @if($category->relationLoaded('subcategories'))
+                    @foreach($category->subcategories as $subcategories)
                         @include('posts.child',['child'=> $subcategories])
-                @endforeach
+                    @endforeach
+                @endif
             @endforeach
         </ul>
     </section>
