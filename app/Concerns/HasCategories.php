@@ -14,24 +14,45 @@ trait HasCategories
     {
         $categories = $this->categories;
 
-        $parents = $categories->filter(function($cat) use($categories){
-           return !in_array($cat->parent_id, $categories->pluck('id')->all()) || is_null($cat->parent_id);
-        });
+        $parents = $categories->filter(fn($cat)  =>
+            !$categories->contains('id', $cat->parent_id) || is_null($cat->parent_id)
+        );
 
         $parents->map(fn($parent) => $this->setNested($parent, $categories));
 
         return $parents;
     }
 
+    /**
+     * Get all Categories with Posts associated with the User in nested tree structure.
+     */
+    public function availableCategoriesWithPosts(): Collection
+    {
+        $categories = $this->categories()->withPosts()->get();
+
+        $parents = $categories->filter(fn($cat)  =>
+            !$categories->contains('id', $cat->parent_id) || is_null($cat->parent_id)
+        );
+
+        $parents->map(fn($parent) => $this->setNested($parent, $categories));
+
+        return $parents;
+    }
+
+    /**
+     * Set the nested structure for the given $parent with relation.
+     */
     protected function setNested($parent, $categories)
     {
         $parent->setRelation('subcategories', $categories->where('parent_id', $parent->id));
         $parent->subcategories->map(function($sub) use($categories){
             if($categories->contains('parent_id', $sub->id)) {
                 $this->setNested($sub, $categories);
-                return $sub;
             }
+            return $sub;
         });
+
+        return $parent;
     }
     
     // public function availableCategories($columns = '*')

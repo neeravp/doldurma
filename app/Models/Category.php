@@ -94,6 +94,14 @@ class Category extends Model
         return $query->whereHas('users', fn($query) => $query->whereId($userId));
     }
 
+    /**
+     * Query constraint to get Categories with associated Posts.
+     */
+    public function scopeWithPosts($query)
+    {
+        return $query->with('posts');
+    }
+
     public function getSubcategoryIds()
     {
         $ids = $this->subcategories->pluck('id');

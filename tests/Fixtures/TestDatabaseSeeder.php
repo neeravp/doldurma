@@ -3,6 +3,7 @@ namespace Tests\Fixtures;
 
 
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -99,6 +100,18 @@ class TestDatabaseSeeder extends Seeder
             'api_token' => 'WgvwYZpvAApBwvLXiX3IkYNNdUlsFZW02cPVaCLEh71Mw2bnzCnJfJiJl836',
             'remember_token' => 'j5alcluEhrEGXPWz0kdklOpuoqvR9kDhymSHcOcNT7qRDpEcdLkj52dhko1X',
         ]);
+
+        User::create([ //is-editor 8
+            'name' => 'Ronaldo',
+            'family' => 'ronaldo',
+            'username' => 'ronaldo',
+            'email' => 'p2ronaldo@p.com',
+            'password' => Hash::make('secret'),
+            'two_factor_expiry' => '2020-11-22 06:29:29',
+            'session_id' => 'jQQ2lNkcsid8ZJBp7vHyVfcy4f790ZRohTdeGG8d',
+            'api_token' => 'WgvwYZpvAApBwvLXiX3IkYNNdUlsFZW02cPVaCLEh71Mw2bnzCnJfJiJl836',
+            'remember_token' => 'j5alcluEhrEGXPWz0kdklOpuoqvR9kDhymSHcOcNT7qRDpEcdLkj52dhko1X',
+        ]);
         
         //-----------RolesSeeder------------//
         Role::create([  //id:1
@@ -178,6 +191,14 @@ class TestDatabaseSeeder extends Seeder
             'parent_id' => 4, //parent:web\php
             'name' => 'lumen'
         ]);
+        Category::create([ //multimedia  //id:12
+            'parent_id' => null, //parent:web\php
+            'name' => 'multimedia'
+        ]);
+        Category::create([ //images  //id:13
+            'parent_id' => 12, //parent:multimedia
+            'name' => 'lumen'
+        ]);
         
         //-----------CategoryUserSeeder------------//
 
@@ -195,10 +216,10 @@ class TestDatabaseSeeder extends Seeder
         DB::table('category_user')->insert(['category_id' => 11, 'user_id'=> 1]);//'lumen'
 
         //Ella: manager
-        DB::table('category_user')->insert(['category_id' => 2, 'user_id' => 2]);//'php'
-        // DB::table('category_user')->insert(['category_id' => 4, 'user_id' => 2]);//'php'
-        // DB::table('category_user')->insert(['category_id' => 10, 'user_id' => 2]);//'laravel'
-        // DB::table('category_user')->insert(['category_id' => 11, 'user_id' => 2]);//'lumen'
+        // DB::table('category_user')->insert(['category_id' => 2, 'user_id' => 2]);//'php'
+        DB::table('category_user')->insert(['category_id' => 4, 'user_id' => 2]);//'php'
+        DB::table('category_user')->insert(['category_id' => 10, 'user_id' => 2]);//'laravel'
+        DB::table('category_user')->insert(['category_id' => 11, 'user_id' => 2]);//'lumen'
 
         //Elizabeth: manager
         DB::table('category_user')->insert(['category_id' => 2, 'user_id' => 3]);//'web'
@@ -220,5 +241,67 @@ class TestDatabaseSeeder extends Seeder
         DB::table('category_user')->insert(['category_id' => 11, 'user_id' => 7]);//'lumen' 
         // Scarlet: writer
         DB::table('category_user')->insert(['category_id' => 7, 'user_id' => 4]);//'js' 
+
+
+        //--------------Post--------------------//
+        Post::create([ //id:1
+            'user_id' => 1,
+            'title' => 'LARAVEL Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'alfred', is-portal-manager
+
+        Post::create([ //id:2
+            'user_id' => 2,
+            'title' => 'WEB Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'ella', is-manager
+
+        Post::create([ //id:3
+            'user_id' => 3,
+            'title' => 'HTML Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]);//'name' => 'elizabeth', is-manager
+
+        Post::create([ //id:4
+            'user_id' => 4,
+            'title' => 'CSS Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); // 'name' => 'scarlett', is-editor
+
+        Post::create([ //id:5
+            'user_id' => 5,
+            'title' => 'LUMEN Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'william', is-writer
+
+        Post::create([ //id:6
+            'user_id' => 6,
+            'title' => 'FLUTTER Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'william',is-writer
+
+
+        Post::create([ //id:7
+            'user_id' => 7,
+            'title' => 'IMAGES Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'messi',is-manager
+
+
+        Post::create([ //id:8
+            'user_id' => 8,
+            'title' => 'SOUNDS Test Test Test',
+            'description' => '<p>Test Test Test</p>',
+        ]); //'name' => 'ronaldo',is-manager
+
+        DB::table('category_post')->insert(['category_id' => 9, 'post_id' => 1]);
+        DB::table('category_post')->insert(['category_id' => 2, 'post_id' => 2]);
+        DB::table('category_post')->insert(['category_id' => 5, 'post_id' => 3]);
+        DB::table('category_post')->insert(['category_id' => 6, 'post_id' => 4]);
+        DB::table('category_post')->insert(['category_id' => 10, 'post_id' => 5]);
+        DB::table('category_post')->insert(['category_id' => 7, 'post_id' => 6]);
+
+        DB::table('category_post')->insert(['category_id' => 12, 'post_id' => 7]);
+        DB::table('category_post')->insert(['category_id' => 13, 'post_id' => 8]);
     }
 }
